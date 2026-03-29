@@ -1,0 +1,8 @@
+# directories
+.github/
+bin/
+obj/
+out/
+
+# files
+Dockerfile*

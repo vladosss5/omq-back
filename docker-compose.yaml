@@ -1,0 +1,39 @@
+version: '3.8' 
+
+services:
+  asp-net-api:
+    container_name: ask-again-api
+    build: .
+    ports:
+      - "8000:80"
+    restart: unless-stopped
+    depends_on:
+      mongo-db:
+        condition: service_healthy
+    networks:
+      - app-network
+    
+  mongo-db:
+    container_name: ask-again-mongodb
+    image: mongo:7.0.0-rc10
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: mongosh --eval "db.adminCommand('ping')" || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+    name: ask-again-mongodb-data
+    driver: local
+    
+networks:
+  app-network:
+    driver: bridge
