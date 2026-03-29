@@ -8,5 +8,7 @@ public class DatabaseSettings
     public string SessionsCollectionName { get; set; } = null!;
     public string TariffsCollectionName { get; set; } = null!;
     public string PollResultCollectionName { get; set; } = null!;
+    public string UserName { get; set; }
+    public string Password { get; set; }
 }
 

@@ -17,6 +17,10 @@ services:
     container_name: ask-again-mongodb
     image: mongo:7.0.0-rc10
     restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: StrongPassword123!
+      MONGO_INITDB_DATABASE: askagain
     ports:
       - "27017:27017"
     healthcheck:
