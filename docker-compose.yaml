@@ -20,7 +20,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: StrongPassword123!
-      MONGO_INITDB_DATABASE: askagain
+      MONGO_INITDB_DATABASE: AskAgainTest
     ports:
       - "27017:27017"
     healthcheck:
